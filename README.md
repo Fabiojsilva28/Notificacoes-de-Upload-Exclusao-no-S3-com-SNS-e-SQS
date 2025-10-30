@@ -12,13 +12,13 @@ Você trabalha em uma empresa de mídia que armazena todos os seus arquivos de i
 
 ### Tarefas:
 
-* Console S3: Acesse o console do S3.
+* **Console S3:** Acesse o console do S3.
 
 <img width="1020" height="359" alt="Captura de tela 2025-10-29 230815" src="https://github.com/user-attachments/assets/2f8ed576-72f1-403b-8cdd-69693bc08945" />
 
 ---
 
-* Clique em Criar bucket.
+* **Clique em Criar bucket.**
 
 <img width="1680" height="485" alt="Captura de tela 2025-10-29 231148" src="https://github.com/user-attachments/assets/92600694-b612-48b3-b569-f3f3c32c0d81" />
 
@@ -50,7 +50,7 @@ Arn este que será utilizado posteriormente para fazer as amarrações.
 
 ---
 
-Agora iremos Utilizar O SNS que irá enviar as notificações.
+**Agora iremos Utilizar O SNS que irá enviar as notificações.**
 * **Console SNS:** Acesse o console do SNS.
 
 <img width="1011" height="355" alt="5" src="https://github.com/user-attachments/assets/ab4fe9c3-a727-49a3-8887-2b7fbf0b5ed0" />
@@ -62,7 +62,7 @@ Agora iremos Utilizar O SNS que irá enviar as notificações.
 
 ---
 
-* Tópicos -> Criar tópico.
+* **Tópicos -> Criar tópico.**
    * **Tipo:** Padrão.
    * **Nome:** notificacoes-s3-seunome-data.
    * **Política de acesso:** Básico (vamos modificar depois).
@@ -90,7 +90,7 @@ Agora iremos Utilizar O SNS que irá enviar as notificações.
 <img width="2096" height="785" alt="9" src="https://github.com/user-attachments/assets/ac3a92fa-1cb2-4758-9cf3-323aaa5f9012" />
 
 ---
-#Agora partiremos para a criação das filas que receberão os logs dos uploas e exclusões do bucket S3 
+**Agora partiremos para a criação das filas que receberão os logs dos uploas e exclusões do bucket S3.** 
 
 **Console SQS:** Acesse o console do SQS.
 
@@ -98,7 +98,7 @@ Agora iremos Utilizar O SNS que irá enviar as notificações.
 
 ---
 
-#Criar Fila:
+**Criar Fila:**
 * **Criar fila.**
 
 <img width="2090" height="557" alt="11" src="https://github.com/user-attachments/assets/58c292ad-6012-4502-957c-9da8ab15f39f" />
