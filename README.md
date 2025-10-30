@@ -24,7 +24,7 @@ Você trabalha em uma empresa de mídia que armazena todos os seus arquivos de i
 
 ---
 
-* **Nome do bucket:** eventos-s3-seunome-data (ex: eventos-s3-robertasilva-20231028).
+* **Nome do bucket:** eventos-s3-seunome-data (ex: eventos-s3-fabiosilva-20231028).
 
 * **Região da AWS:** Norte da Virgínia - us-east-1 (use a mesma para todos os recursos).
 
