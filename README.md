@@ -123,3 +123,89 @@ Arn este que será utilizado posteriormente para fazer as amarrações.
 ## Agora, a parte crucial com os ARNs e a politica do SQS
 
 ---
+
+## Política do Tópico SNS (S3 -> SNS):
+
+* Console SNS -> Seu tópico -> **Política de acesso -> Editar.**
+* **Substitua** a política pelo JSON abaixo:
+
+ <img width="2226" height="937" alt="13" src="https://github.com/user-attachments/assets/cdde583d-9b2e-41e8-8fe9-ae6e7763c6b2" />
+
+ ---
+ 
+<img width="1639" height="1439" alt="14" src="https://github.com/user-attachments/assets/33fa7d71-6b10-48f4-9769-6164a25145f2" />
+
+No campo Política de acesso substitua a politica JSON  por esta politica:
+
+{
+
+"Version": "2012-10-17",
+
+"Id": "__default_policy_ID",
+
+"Statement": [
+
+{
+"Sid": "__default_statement_ID",
+
+"Effect": "Allow",
+
+"Principal": {
+
+"AWS": "*"
+
+},
+
+"Action": [
+
+"SQS:SendMessage",
+
+"SQS:ReceiveMessage",
+
+"SQS:DeleteMessage",
+
+"SQS:GetQueueAttributes",
+
+"SQS:SetQueueAttributes",
+
+"SQS:ListQueues"
+
+],
+
+"Resource": "COLE AQUI O ARN DA SUA FILA SQS"
+
+},
+
+{
+
+"Sid": "AllowSNSToSendMessageToSQS",
+
+"Effect": "Allow",
+
+"Principal": {
+
+"Service": "sns.amazonaws.com"
+
+},
+
+"Action": "sqs:SendMessage",
+
+"Resource": "COLE AQUI O ARN DA SUA FILA SQS",
+
+"Condition": {
+
+"ArnEquals": {
+
+"aws:SourceArn": "COLE AQUI O ARN DO SEU TÓPICO SNS"
+
+}
+
+}
+
+}
+
+]
+
+}
+
+
