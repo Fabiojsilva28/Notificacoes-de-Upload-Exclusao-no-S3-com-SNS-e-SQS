@@ -1,0 +1,1 @@
+# Notificacoes-de-Upload-Exclusao-no-S3-com-SNS-e-SQS
