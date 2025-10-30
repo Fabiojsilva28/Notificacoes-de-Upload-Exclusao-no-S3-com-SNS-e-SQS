@@ -87,6 +87,38 @@ Agora iremos Utilizar O SNS que irá enviar as notificações.
    * **Criar assinatura.**
    * **Confirmação Imediata:** Abra o e-mail da AWS e clique no link de confirmação.
 
-
-  
 <img width="2096" height="785" alt="9" src="https://github.com/user-attachments/assets/ac3a92fa-1cb2-4758-9cf3-323aaa5f9012" />
+
+---
+#Agora partiremos para a criação das filas que receberão os logs dos uploas e exclusões do bucket S3 
+
+**Console SQS:** Acesse o console do SQS.
+
+<img width="1013" height="365" alt="10" src="https://github.com/user-attachments/assets/6af76266-cd2e-429a-a7ab-334b572816d7" />
+
+---
+
+#Criar Fila:
+* **Criar fila.**
+
+<img width="2090" height="557" alt="11" src="https://github.com/user-attachments/assets/58c292ad-6012-4502-957c-9da8ab15f39f" />
+
+---
+
+* **Tipo:** Fila padrão.
+
+* **Nome:** fila-eventos-s3-seunome-data.
+
+* **Política de acesso:** Básico (vamos modificar depois).
+
+* **Concluir:** Clique em Criar fila.
+
+<img width="1228" height="2427" alt="12" src="https://github.com/user-attachments/assets/86a00abb-5ab6-4482-87c7-003fb81fa68f" />
+
+**Copiar o ARN da Fila (IMPORTANTE):** ``Copie o ARN da fila.``
+
+---
+
+## Agora, a parte crucial com os ARNs e a politica do SQS
+
+---
