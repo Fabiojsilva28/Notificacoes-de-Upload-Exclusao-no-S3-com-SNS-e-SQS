@@ -71,7 +71,10 @@ Arn este que será utilizado posteriormente para fazer as amarrações.
 <img width="1634" height="1261" alt="7" src="https://github.com/user-attachments/assets/b2743f8a-76e8-4d03-b08a-8363eff843fa" />
 
 ---
-**Tópico Criado**
+**Tópico Criado/Depois criando a assinatura no SNS**
+
+* **Criar Assinatura de E-mail:**
+   * No tópico, **Assinaturas -> Criar assinatura.**
 
 <img width="6960" height="2493" alt="8" src="https://github.com/user-attachments/assets/22f3099c-9988-4947-acc9-901b49b754d9" />
 
@@ -80,8 +83,6 @@ Arn este que será utilizado posteriormente para fazer as amarrações.
 
 ---
 
-* **Criar Assinatura de E-mail:**
-   * No tópico, **Assinaturas -> Criar assinatura.**
    * **Protocolo:** E-mail.
    * **Endpoint:** Seu e-mail.
    * **Criar assinatura.**
