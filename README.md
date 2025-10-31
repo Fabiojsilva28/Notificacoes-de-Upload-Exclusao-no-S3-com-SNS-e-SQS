@@ -120,7 +120,7 @@ Arn este que será utilizado posteriormente para fazer as amarrações.
 
 ---
 
-## Agora, a parte crucial com os ARNs e a politica do SQS
+## Agora, a parte crucial com os ARNs e a politica do SQS e habilitando que o S3 notifique uploads/exclusões no bucket.
 
 ---
 
@@ -135,77 +135,48 @@ Arn este que será utilizado posteriormente para fazer as amarrações.
  
 <img width="1639" height="1439" alt="14" src="https://github.com/user-attachments/assets/33fa7d71-6b10-48f4-9769-6164a25145f2" />
 
-No campo Política de acesso substitua a politica JSON  por esta politica:
+No campo Política de acesso substitua a politica JSON padrão por esta politica de acesso abaixo:
 
-{
+<img width="474" height="866" alt="Captura de tela 2025-10-31 182923" src="https://github.com/user-attachments/assets/75e1d625-45ae-402d-8278-97cf07d7336e" />
 
-"Version": "2012-10-17",
+[Link do Código acima](https://docs.google.com/document/d/1XscPnvRc9z8_JK_TSPx7fQ-8aMm4Gk4Vj5xrfeay3BA/edit?usp=sharing)
 
-"Id": "__default_policy_ID",
+**Onde Colar os ARNs (e o ID da Conta):**
+* **"Resource":** "COLE AQUI O ARN DO SEU TÓPICO SNS": **Em ambos os lugares onde esta linha aparece, cole o ARN completo do seu tópico SNS.** 
 
-"Statement": [
+* **"aws:SourceArn":** "COLE AQUI O ARN DO SEU BUCKET S3": **Cole o ARN completo do seu bucket S3.**
 
-{
-"Sid": "__default_statement_ID",
+* **"AWS:SourceOwner":** "SEU ID DE CONTA DA AWS (12 DÍGITOS)": **Cole o seu ID de conta da AWS (12 dígitos). Você encontra o ID no canto superior direito do console.**
 
-"Effect": "Allow",
+* Clique em **Salvar alterações.**
 
-"Principal": {
+---
+## Política da Fila SQS (SNS -> SQS)
 
-"AWS": "*"
+Console SQS -> Sua fila -> **Política de acesso** -> **Editar.**
 
-},
+<img width="2244" height="1061" alt="15" src="https://github.com/user-attachments/assets/e0a8118b-5733-4820-a70e-e06811c0c951" />
 
-"Action": [
+* **Substitua** a política pelo JSON abaixo:
 
-"SQS:SendMessage",
+<img width="447" height="709" alt="Captura de tela 2025-10-31 183221" src="https://github.com/user-attachments/assets/1e3e5906-b9b9-4c01-901f-1a1b6761771c" />
 
-"SQS:ReceiveMessage",
+[Link do Código acima](https://docs.google.com/document/d/1p9Duh_wXL3imZFsG6IGDyCjAvmPhhw3xGJEfYf70wvM/edit?usp=sharing)
 
-"SQS:DeleteMessage",
+* **Onde Colar os ARNs:**
+   * **"Resource":** "COLE AQUI O ARN DA SUA FILA SQS": **Cole o ARN da sua fila SQS.**
+   * **"aws:SourceArn":** "COLE AQUI O ARN DO SEU TÓPICO SNS": **Cole o ARN do seu tópico SNS.**
+* Clique em **Salvar alterações.**
 
-"SQS:GetQueueAttributes",
+---
 
-"SQS:SetQueueAttributes",
+* Console S3 -> Seu bucket -> Propriedades -> Notificações de eventos -> Criar notificação de evento.
 
-"SQS:ListQueues"
+* **Configuração:**
+   * **Nome:** NotificarPutDelete.
+   * **Tipos de eventos:** Marque as caixinhas:
+      * Todos os eventos de criação de objeto (s3:ObjectCreated:*)
+      * Todos os eventos de remoção de objetos (s3:ObjectRemoved:*)
+   * **Destino:** **Tópico do SNS** -> **Tópico do SNS, na sua lista...** -> Selecione o seu tópico.
 
-],
-
-"Resource": "COLE AQUI O ARN DA SUA FILA SQS"
-
-},
-
-{
-
-"Sid": "AllowSNSToSendMessageToSQS",
-
-"Effect": "Allow",
-
-"Principal": {
-
-"Service": "sns.amazonaws.com"
-
-},
-
-"Action": "sqs:SendMessage",
-
-"Resource": "COLE AQUI O ARN DA SUA FILA SQS",
-
-"Condition": {
-
-"ArnEquals": {
-
-"aws:SourceArn": "COLE AQUI O ARN DO SEU TÓPICO SNS"
-
-}
-
-}
-
-}
-
-]
-
-}
-
-
+* **Salvar.**
